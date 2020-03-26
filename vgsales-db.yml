@@ -1,0 +1,9 @@
+name: vgsales-db
+channels:
+  - defaults
+dependencies:
+  - python=3
+  - pip
+  - pip:
+    - numpy
+    - pandas
