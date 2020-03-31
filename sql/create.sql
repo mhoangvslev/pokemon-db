@@ -63,8 +63,10 @@ CREATE TABLE Fact (
     eu_sales INTEGER,
     other_sales INTEGER,
     global_sales INTEGER,
-    critic_score INTEGER,
+    critic_score NUMERIC,
     critic_count INTEGER,
+    user_score NUMERIC,
+    user_count INTEGER,
     rating VARCHAR
 );
 
@@ -131,6 +133,8 @@ CREATE TABLE SalesDecoy(
     GLOBAL_SALES VARCHAR,
     CRITIC_SCORE VARCHAR,
     CRITIC_COUNT VARCHAR,
+    USER_COUNT VARCHAR,
+    USER_SCORE VARCHAR,
     ID_DEVELOPPER VARCHAR,
     DEVELOPPER VARCHAR,
     RATING VARCHAR

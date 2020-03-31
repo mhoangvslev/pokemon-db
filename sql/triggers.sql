@@ -97,12 +97,13 @@ RETURNS TRIGGER AS $$
                 INSERT INTO Fact (
                     game_id, publisher_id, developer_id, platform_id, 
                     na_sales, jp_sales, eu_sales, other_sales, global_sales,
-                    critic_score, critic_count, 
+                    critic_score, critic_count, user_score, user_count,
                     rating 
                 ) VALUES (
                     NEW.ID_GAME, v_publisherId, v_developerId, NEW.ID_PLATFORM, 
                     cast(NEW.NA_SALES as Integer), cast(NEW.JP_SALES as Integer), cast(NEW.EU_SALES as Integer), cast(NEW.OTHER_SALES as Integer), cast(NEW.GLOBAL_SALES as Integer),
-                    cast(NEW.CRITIC_SCORE as Integer), cast(NEW.CRITIC_COUNT as integer), 
+                    cast(NEW.CRITIC_SCORE as NUMERIC), cast(NEW.CRITIC_COUNT as integer), 
+                    cast(NEW.USER_SCORE as NUMERIC), cast(NEW.USER_COUNT as integer), 
                     NEW.RATING
                 )
                 ON CONFLICT DO NOTHING;
