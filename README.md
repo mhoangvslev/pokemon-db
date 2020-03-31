@@ -8,7 +8,9 @@ In this project, we build data warehouse from game sales, platform, publisher, d
 ```
 
 ### Import clean data to DBMS
-- Launch ```db-import.sh```, the script will create decoy tables to hold clean CSV data, create triggers on decoy tables so that when you insert clean data using ```COPY...```, the data will be transfered to the final table.
+- Launch ```db-import.sh```, the script will create decoy tables to hold clean CSV data, create triggers on decoy tables so that when you insert clean data using ```COPY...```, the data will be transfered to the final tables.
+
+![](https://i.imgur.com/lnZ22lx.jpg)
 
 - In the script, modify the below line to fit your setup:
 ```sh
