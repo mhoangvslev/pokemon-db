@@ -3,8 +3,8 @@ import re
 import unicodedata
 import os
 
-RAW_CSV_PATH = os.path.abspath('dataset/raw/')
-OUT_CSV_PATH = os.path.abspath('dataset/clean/')
+RAW_CSV_PATH = os.path.abspath('../dataset/raw/')
+OUT_CSV_PATH = os.path.abspath('../dataset/clean/')
 
 EMPTY_CHAR = ''
 
@@ -132,7 +132,7 @@ if __name__ == "__main__":
                             f.write(cell)
                             f.write(';')
                         elif i == 2:  # HEADQUARTERS_CITY
-                            f.write(cell.split(',')[0])
+                            f.write(cell.split(',')[-1])
                             f.write(';')
                         elif i == 4:  # HEADQUARTERS_COUNTRY
                             if cell == 'US':
@@ -166,5 +166,3 @@ if __name__ == "__main__":
                             f.write(";")
                     f.write("\n")
                 f.close()
-
-
