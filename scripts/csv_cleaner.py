@@ -58,12 +58,16 @@ if __name__ == "__main__":
                     except:
                         f.write(EMPTY_CHAR)
                     f.write(";")
-                elif 10 <= i <= 11:  # CRITIC_SCORE ; CRITIC_COUNT ; USER_SCORE ; USER_COUNT
+                elif 10 <= i <= 13:  # CRITIC_SCORE ; CRITIC_COUNT ; USER_SCORE ; USER_COUNT
                     try:
                         count = int(cell)
                         f.write(str(count))
                     except:
-                        f.write(EMPTY_CHAR)
+                        try:
+                            count = float(cell)
+                            f.write(str(count))
+                        except:
+                            f.write(EMPTY_CHAR)
                     f.write(";")
                 elif i == 14:  # ID_DEVELOPPER ; DEVELOPPER
                     if cell:
