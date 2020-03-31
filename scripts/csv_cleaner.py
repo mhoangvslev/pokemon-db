@@ -1,9 +1,10 @@
 import csv
 import re
 import unicodedata
+import os
 
-RAW_CSV_PATH = '../dataset/raw/'
-OUT_CSV_PATH = '../dataset/clean/'
+RAW_CSV_PATH = os.path.abspath('dataset/raw/')
+OUT_CSV_PATH = os.path.abspath('dataset/clean/')
 
 EMPTY_CHAR = ''
 
@@ -12,7 +13,7 @@ def normalize_name(name):
     # Remove non-word char
     name = re.sub(r"[^a-zA-Z0-9_]", "", name)
     # Remove accents
-    name = ''.join((c for c in unicodedata.normalize('NFD', name) if unicodedata.category(c) != 'Mn'))
+    name = ''.join((c for c in unicodedata.normalize('NFKD', name) if unicodedata.category(c) != 'Mn'))
     # Lowercase
     name = name.lower()
     return name
@@ -22,10 +23,10 @@ if __name__ == "__main__":
 
     csv_name = 'vgsales.csv'
 
-    with open(RAW_CSV_PATH + csv_name) as csvfile:
+    with open(os.path.join(RAW_CSV_PATH, csv_name)) as csvfile:
         next(csvfile)
         readCSV = csv.reader(csvfile, delimiter=',')
-        f = open(OUT_CSV_PATH + csv_name, "w")
+        f = open(os.path.join(OUT_CSV_PATH, csv_name), "w")
         f.write("ID_GAME;GAME;ID_PLATFORM;YEAR_RELEASE;GENRE;ID_PUBLISHER;PUBLISHER;NA_SALES;EU_SALES;JP_SALES;"
                 "OTHER_SALES;GLOBAL_SALES;CRITIC_SCORE;CRITIC_COUNT;USER_SCORE;USER_COUNT;"
                 "ID_DEVELOPER;DEVELOPER;RATING\n")
@@ -84,10 +85,10 @@ if __name__ == "__main__":
 
         csv_name = 'publisher.csv'
 
-        with open(RAW_CSV_PATH + csv_name, errors='ignore') as csvfile:
+        with open(os.path.join(RAW_CSV_PATH, csv_name), errors='ignore') as csvfile:
             next(csvfile)
             readCSV = csv.reader(csvfile, delimiter=',')
-            f = open(OUT_CSV_PATH + csv_name, "w")
+            f = open(os.path.join(OUT_CSV_PATH, csv_name), "w")
             f.write("ID_PUBLISHER;PUBLISHER;HEADQUARTERS_COUNTRY;HEADQUARTERS_CITY;CREATION_DATE;NOTES\n")
             for row in readCSV:
                 for i, cell in enumerate(row):
@@ -114,10 +115,10 @@ if __name__ == "__main__":
 
             csv_name = 'developer.csv'
 
-            with open(RAW_CSV_PATH + csv_name, errors='ignore') as csvfile:
+            with open(os.path.join(RAW_CSV_PATH, csv_name), errors='ignore') as csvfile:
                 next(csvfile)
                 readCSV = csv.reader(csvfile, delimiter=',')
-                f = open(OUT_CSV_PATH + csv_name, "w")
+                f = open(os.path.join(OUT_CSV_PATH, csv_name), "w")
                 f.write("ID_DEVELOPPER;DEVELOPER;ACTIVE;HEADQUARTERS_CITY;HEADQUARTERS_COUNTRY;CREATION_DATE;NOTES\n")
                 for row in readCSV:
                     for i, cell in enumerate(row):
@@ -153,10 +154,10 @@ if __name__ == "__main__":
 
             csv_name = 'plateform.csv'
 
-            with open(RAW_CSV_PATH + csv_name, errors='ignore') as csvfile:
+            with open(os.path.join(RAW_CSV_PATH, csv_name), errors='ignore') as csvfile:
                 next(csvfile)
                 readCSV = csv.reader(csvfile, delimiter=',')
-                f = open(OUT_CSV_PATH + csv_name, "w")
+                f = open(os.path.join(OUT_CSV_PATH, csv_name), "w")
                 f.write("PLATFORM;NAME;MANUFACTURER;GAMES_COUNT;EU_RELEASE;NA_RELEASE;JP_RELEASE;GENERATION\n")
                 for row in readCSV:
                     for i, cell in enumerate(row):
