@@ -1,0 +1,1189 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "$$hashKey": "object:114",
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 31,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "cacheTimeout": null,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "description": "par type et par année, avec des sous totaux par : Type, Année, Type et année, total général ",
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 19,
+            "x": 0,
+            "y": 1
+          },
+          "hiddenSeries": false,
+          "hideTimeOverride": false,
+          "id": 2,
+          "interval": "",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "hideEmpty": false,
+            "hideZero": false,
+            "max": true,
+            "min": true,
+            "rightSide": true,
+            "show": true,
+            "total": true,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "dataLinks": []
+          },
+          "percentage": false,
+          "pluginVersion": "6.7.1",
+          "pointradius": 2,
+          "points": true,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "title",
+              "rawQuery": true,
+              "rawSql": "SELECT G.genre as genre, G.release_year as time, sum(F.eu_sales) as metric\nFROM Game G, Fact F\nWHERE G.game_id = F.game_id\nGROUP BY CUBE (G.genre, G.release_year)\nORDER BY metric DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "table": "game",
+              "timeColumn": "time",
+              "where": []
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": "1year",
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Nombre de ventes de jeux vidéos par genre en Europe",
+          "tooltip": {
+            "shared": true,
+            "sort": 1,
+            "value_type": "individual"
+          },
+          "transparent": true,
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:190",
+              "decimals": null,
+              "format": "currencyUSD",
+              "label": "Revenus",
+              "logBase": 1,
+              "max": "28960000",
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:191",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "cacheTimeout": null,
+          "columns": [],
+          "datasource": null,
+          "description": "par type et par année, avec des sous totaux par : Type, Année, Type et année, total général ",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 7,
+            "w": 5,
+            "x": 19,
+            "y": 1
+          },
+          "hideTimeOverride": false,
+          "id": 25,
+          "links": [],
+          "pageSize": null,
+          "pluginVersion": "6.7.1",
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:580",
+              "alias": "Release Date",
+              "align": "auto",
+              "dateFormat": "DD/MM/YYYY",
+              "pattern": "time",
+              "type": "date"
+            },
+            {
+              "$$hashKey": "object:581",
+              "alias": "Total sales",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "metric",
+              "thresholds": [],
+              "type": "number",
+              "unit": "currencyUSD"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "title",
+              "rawQuery": true,
+              "rawSql": "SELECT G.genre as genre, G.release_year as time, sum(F.eu_sales) as metric\nFROM Game G, Fact F\nWHERE G.game_id = F.game_id\nGROUP BY CUBE (G.genre, G.release_year)\nORDER BY metric DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "table": "game",
+              "timeColumn": "time",
+              "where": []
+            }
+          ],
+          "timeFrom": "1year",
+          "timeShift": null,
+          "title": "Nombre de ventes de jeux vidéos par genre en Europe",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        }
+      ],
+      "repeat": null,
+      "title": "Regions based stats",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 29,
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 2
+          },
+          "id": 4,
+          "links": [],
+          "pageSize": null,
+          "pluginVersion": "6.7.1",
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:1125",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "DD/MM/YYYY",
+              "link": false,
+              "pattern": "/.*sales/",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:1126",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "-- En une année spécifique\nSELECT p.publisher_name as series, SUM(f.na_sales) as na_sales, SUM(f.jp_sales) as jp_sales, SUM(f.eu_sales) eu_sales, SUM(f.other_sales) as other_sales, SUM(f.global_sales) as global_sales\nFROM Publisher p, Fact f, Game g\nWHERE p.publisher_id = f.publisher_id AND f.game_id = g.game_id AND extract(YEAR FROM g.release_year) = 2010\nGROUP BY ROLLUP (p.publisher_name)\nORDER BY global_sales DESC\nLIMIT 10\n",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les publishers les plus réussis en 2010",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 2
+          },
+          "id": 6,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:1850",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "DD/MM/YYYY",
+              "pattern": "/[a-z]*_sales/",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:1851",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "publisher_name",
+              "preserveFormat": false,
+              "sanitize": true,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "-- Tous les temps\nSELECT p.publisher_name, SUM(f.na_sales) as na_sales, SUM(f.jp_sales) as jp_sales, SUM(f.eu_sales) eu_sales, SUM(f.other_sales) as other_sales, SUM(f.global_sales) as global_sales\nFROM Publisher p, Fact f\nWHERE p.publisher_id = f.publisher_id\nGROUP BY ROLLUP (p.publisher_name)\nORDER BY global_sales DESC\nLIMIT 10",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les publishers les plus réussis en 2010 de tous les temps",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 10
+          },
+          "id": 8,
+          "pageSize": null,
+          "pluginVersion": "6.7.1",
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:2078",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:2079",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "-- En 2010\nSELECT p.publisher_name, d.developer_name, SUM(f.global_sales) as global_sales\nFROM Publisher p, Fact f, Developer d, Game g\nWHERE p.publisher_id = f.publisher_id AND f.developer_id = d.developer_id \n\tAND f.game_id = g.game_id \n      AND extract(year from g.release_year) = 2010 -- Supp pour tous les temps\n\tAND p.publisher_name = 'Activision'\nGROUP BY ROLLUP (p.publisher_name, d.developer_name)\nORDER BY global_sales DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Breakdown des revenus de Activision (Publisher) par ses studios en 2010",
+          "transform": "table",
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 6,
+            "y": 10
+          },
+          "id": 10,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:2499",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:2500",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "\n\nSELECT d.developer_name, g.title, SUM(f.global_sales) as global_sales\nFROM Fact f, Developer d, Game g\nWHERE f.developer_id = d.developer_id\n\tAND f.game_id = g.game_id \n\tAND extract(year from g.release_year) = 2010\n\tAND lower(d.developer_name) = 'ubisoft'\nGROUP BY ROLLUP (d.developer_name, g.title)\nORDER BY global_sales DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Breakdown des revenus de Ubisoft (Developer) par ses produits en 2010?",
+          "transform": "table",
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "description": "Les genres qui génèrent le plus de revenu pour les 10 meilleurs développeur en 2010",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 12,
+            "y": 10
+          },
+          "id": 14,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:2937",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:2938",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "WITH game_sales_per_genre AS (\n\tSELECT g.genre, d.developer_name, f.global_sales\n\tFROM Fact f, Developer d, Game g\n\tWHERE f.developer_id = d.developer_id\n\t\tAND f.game_id = g.game_id \n\t\tAND extract(year from g.release_year) = 2010\n\tORDER BY f.global_sales DESC\n\tLIMIT 10\n) \tSELECT genre, developer_name, SUM(global_sales) as global_sales\n\tFROM game_sales_per_genre\n\tGROUP BY CUBE(genre, developer_name)\n\tORDER BY genre",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les genres qui génèrent le plus de revenu pour les 10 meilleurs développeur en 2010",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 10
+          },
+          "id": 12,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:2714",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:2715",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT d.developer_name, g.genre, SUM(f.global_sales) as global_sales\nFROM Fact f, Developer d, Game g\nWHERE f.developer_id = d.developer_id\n\tAND f.game_id = g.game_id \n\tAND extract(year from g.release_year) = 2010\n\tAND lower(d.developer_name) = 'ubisoft'\nGROUP BY ROLLUP (d.developer_name, g.genre)\nORDER BY global_sales DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Breakdown des revenus de Ubisoft (Developer) par les genres de jeux-vidéo en 2010",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        }
+      ],
+      "repeat": null,
+      "title": "Publishers and Developers",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 27,
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "columns": [],
+          "datasource": null,
+          "description": "Les meilleurs jeux selon les critiques et les joueurs",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 3
+          },
+          "id": 16,
+          "links": [],
+          "pageSize": null,
+          "pluginVersion": "6.7.1",
+          "showHeader": true,
+          "sort": {
+            "col": 3,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:3182",
+              "alias": "",
+              "align": "auto",
+              "colorMode": "row",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": null,
+              "pattern": "critics",
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:3619",
+              "alias": "",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:3183",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "users",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT G.title, P.platform_name, TRUNC(AVG(F.critic_score),2) AS critics, TRUNC(AVG(F.user_score),2) AS users\nFROM Fact F, Game G, platform P\nWHERE F.game_id = G.game_id\n      AND F.platform_id = P.platform_id\n      AND F.critic_score IS NOT NULL\n      AND F.user_score IS NOT NULL\nGROUP BY (G.title,P.platform_name)",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les meilleurs jeux selon les critiques et les joueurs",
+          "transform": "table",
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 20,
+            "w": 6,
+            "x": 12,
+            "y": 3
+          },
+          "id": 18,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 1,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:3839",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:3840",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT P.platform_name, SUM(F.Global_sales) as global_sales\nFROM Platform P, Fact F\nWHERE P.platform_id = F.platform_id\nGROUP BY ROLLUP(P.platform_name)\nOrder by SUM(F.Global_sales) DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les nombres de ventes par plateforme",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 20,
+            "w": 6,
+            "x": 18,
+            "y": 3
+          },
+          "id": 22,
+          "pageSize": null,
+          "pluginVersion": "6.7.1",
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:4348",
+              "alias": "critics",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "pattern": "score",
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:4349",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": null,
+              "pattern": "rank_number",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "WITH platform_rank AS (\n  SELECT P.platform_name as platform_name, TRUNC(AVG(F.critic_score),2) AS score\n  FROM Fact F, Game G, platform P\n  WHERE F.game_id = G.game_id\n  AND F.platform_id = P.platform_id\n  AND F.critic_score IS NOT NULL\n  GROUP BY P.platform_name \n) SELECT platform_name, score, rank() OVER (ORDER BY score DESC) rank_number \n\tFROM platform_rank",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Plateforme qui a sorti les meilleurs jeux",
+          "transform": "table",
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 16,
+            "w": 6,
+            "x": 0,
+            "y": 13
+          },
+          "id": 20,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:4161",
+              "alias": "",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "global_sales",
+              "type": "number",
+              "unit": "currencyUSD"
+            },
+            {
+              "$$hashKey": "object:4162",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT P.platform_name, G.title, F.global_sales\nFROM Platform P, Game G, Fact F\nWHERE F.game_id = G.game_id\nAND F.platform_id = P.platform_id\nAND F.global_sales = (SELECT MAX(F.global_sales) \n                      FROM Fact F \n                      WHERE F.platform_id = P.platform_id)\nGROUP BY P.platform_name, G.title, F.global_sales\nORDER BY F.global_sales DESC\n",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Les jeux les plus vendus pour chacune des plateformes",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "columns": [],
+          "datasource": null,
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 16,
+            "w": 6,
+            "x": 6,
+            "y": 13
+          },
+          "id": 24,
+          "pageSize": null,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:4722",
+              "alias": "Time",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "Time",
+              "type": "date"
+            },
+            {
+              "$$hashKey": "object:4723",
+              "alias": "",
+              "align": "right",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "format": "table",
+              "group": [],
+              "metricColumn": "none",
+              "rawQuery": true,
+              "rawSql": "SELECT P.publisher_name, D.developer_name, AVG(F.critic_score) as score\nFROM Publisher P, Fact F, Developer D\nWHERE P.publisher_id = F.publisher_id AND D.developer_id = F.developer_id and F.critic_score >= 0\nGROUP BY GROUPING SETS(P.publisher_name, D.developer_name, (P.publisher_name, D.developer_name))\nORDER BY score DESC",
+              "refId": "A",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "value"
+                    ],
+                    "type": "column"
+                  }
+                ]
+              ],
+              "timeColumn": "time",
+              "where": [
+                {
+                  "name": "$__timeFilter",
+                  "params": [],
+                  "type": "macro"
+                }
+              ]
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Moyenne des critiques par Publisher, par Developer, et par binôme Developer/Publisher",
+          "transform": "table",
+          "transparent": true,
+          "type": "table"
+        }
+      ],
+      "repeat": null,
+      "title": "Platforms and Critics",
+      "type": "row"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 22,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "1959-12-31T11:00:00.500Z",
+    "to": "2040-01-02T10:59:58.500Z"
+  },
+  "timepicker": {
+    "hidden": true,
+    "refresh_intervals": [
+      ""
+    ]
+  },
+  "timezone": "",
+  "title": "vgsales-db",
+  "uid": "LMeR3u9Wk",
+  "variables": {
+    "list": []
+  },
+  "version": 9
+}

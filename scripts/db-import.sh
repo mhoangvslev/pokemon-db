@@ -28,6 +28,11 @@ DROP TABLE IF EXISTS DeveloperDecoy;
 DROP TABLE IF EXISTS PublisherDecoy;
 DROP TABLE IF EXISTS PlatformDecoy;
 
+DROP FUNCTION IF EXISTS proc_publisher_clean;
+DROP FUNCTION IF EXISTS proc_developer_clean;
+DROP FUNCTION IF EXISTS proc_platform_clean;
+DROP FUNCTION IF EXISTS proc_sales_clean;
+
 " > ./sql/import.sql
 
 echo "\n ==== Create tables and decoy tables"
