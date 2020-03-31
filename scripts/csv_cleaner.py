@@ -2,9 +2,7 @@ import csv
 import re
 import unicodedata
 import os
-
-RAW_CSV_PATH = os.path.abspath('../dataset/raw/')
-OUT_CSV_PATH = os.path.abspath('../dataset/clean/')
+import sys
 
 EMPTY_CHAR = ''
 
@@ -20,6 +18,13 @@ def normalize_name(name):
 
 
 if __name__ == "__main__":
+
+    if len(sys.argv) != 3:
+        print("USAGE: python csv_cleaner.py <in_dir> <out_dir>")
+        sys.exit()
+
+    RAW_CSV_PATH = os.path.abspath(sys.argv[1])
+    OUT_CSV_PATH = os.path.abspath(sys.argv[2])
 
     csv_name = 'vgsales.csv'
 

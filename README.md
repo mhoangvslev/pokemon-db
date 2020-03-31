@@ -8,7 +8,7 @@ In this project, we build data warehouse from game sales, platform, publisher, d
 - Put cleaned up files in "dataset/clean"
 - You can easily customise the script to change these parameters
 ```sh
-python3 scripts/csv_cleaner.py
+python csv_cleaner.py <in_dir> <out_dir>
 ```
 
 ### Import clean data to DBMS
