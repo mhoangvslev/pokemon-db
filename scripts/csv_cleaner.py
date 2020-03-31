@@ -154,7 +154,10 @@ if __name__ == "__main__":
                 f.write("PLATFORM;DEVELOPPER;MANUFACTURER;GAMES_COUNT;EU_RELEASE;USA_RELEASE;JP_RELEASE;GENERATION\n")
                 for row in readCSV:
                     for i, cell in enumerate(row):
-                        f.write(cell + ';')
+                        if (i < 7):
+                            f.write(cell + ';')
+                        else:
+                            f.write(cell)
                     f.write("\n")
                 f.close()
 
