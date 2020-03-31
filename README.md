@@ -4,7 +4,11 @@ In this project, we build data warehouse from game sales, platform, publisher, d
 
 ## Cleaning
 ### Clean up CSV from Python script
+- Takes input files from "dataset/raw"
+- Put cleaned up files in "dataset/clean"
+- You can easily customise the script to change these parameters
 ```sh
+python3 scripts/csv_cleaner.py
 ```
 
 ### Import clean data to DBMS
@@ -25,3 +29,4 @@ export PGPASSWORD="postgres"
 ```sh
 sh scripts/db-import.sh # Wait until it's done
 ```
+
