@@ -1,4 +1,4 @@
-ID_DEVELOPPER;DEVELOPPER;ACTIVE;HEADQUARTERS_CITY;HEADQUARTERS_COUNTRY;CREATION_DATE;NOTES
+ID_DEVELOPPER;DEVELOPER;ACTIVE;HEADQUARTERS_CITY;HEADQUARTERS_COUNTRY;CREATION_DATE;NOTES
 0verflow;0verflow;1;Tokyo;Japan;01/01/1997;"Visual Novel brand (both developer and publisher)"
 11bitstudios;11 bit studios;1;Warsaw;Poland;01/01/2010;"Indie developer/publisher"
 1ccompany;1C Company;1;Moscow;Russia;01/01/1991;"Game localization. The game development subsidiary, Snowball Studios [ru], was dissolved and former employees of the studios formed Snowbird Game Studios."
@@ -446,7 +446,7 @@ psyonix;Psyonix;1;San Diego;United States;01/01/2001;"Acquired by Epic Games in 
 punchentertainment;Punch Entertainment;1;Hanoi;Vietnam;01/01/2005;"Subsidiary of Evolable Asia [ja]; Casual games, social games developer"
 pyromobile;Pyro Mobile;1;Madrid;Spain;01/01/1996;"Subsidiary of Zed Group; their assets were acquired by Kalypso Media[21]"
 qentertainment;Q Entertainment;0;Tokyo;Japan;01/01/2003;"Acquired by Sanyo Kasei Seisakusho in 2013 and the parent company was defunct in 2018."
-qgames;Q-Games;1;Nakagyo-ku;Japan;01/01/2001;""
+qgames;Q-Games;1;Nakagy�-ku;Japan;01/01/2001;""
 quanticdream;Quantic Dream;1;Paris;France;01/01/1997;""
 questcorporation;Quest Corporation;0;Tokyo;Japan;01/01/1988;"The game development division was acquired by Square in 2002"
 radicalentertainment;Radical Entertainment;0;Vancouver;Canada;01/01/1991;"Shut down by Activision and dissolved in 2013[22]"
@@ -623,7 +623,7 @@ unitedfrontgames;United Front Games;0;Vancouver;Canada;01/01/2006;"Defunct in 20
 unitedgameartists;United Game Artists;0;Tokyo;Japan;01/01/1996;"Subsidiary of Sega"
 universomo;Universomo;0;Tampere;Finland;01/01/2002;"Defunct in 2010"
 valve;Valve;1;Kirkland;United States;01/01/1996;"Developer, publisher and distributor"
-vanillaware;Vanillaware;1;Chū�-ku;Japan;01/01/2002;""
+vanillaware;Vanillaware;1;Chū�-ku;Japan;01/01/2002;""
 venanentertainment;Venan Entertainment;0;Cromwell;United States;01/01/2002;"Their assets were acquired by Megaspace Industries."
 vicariousvisions;Vicarious Visions;1;Albany (Menands);United States;01/01/1990;"Acquired by Activision in 2004."
 vigilgames;Vigil Games;0;Austin;United States;01/01/2005;"Subsidiary of THQ; defunct in 2013"

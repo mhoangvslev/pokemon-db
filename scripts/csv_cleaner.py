@@ -7,6 +7,7 @@ OUT_CSV_PATH = '../dataset/clean/'
 
 EMPTY_CHAR = ''
 
+
 def normalize_name(name):
     # Remove non-word char
     name = re.sub(r"[^a-zA-Z0-9_]", "", name)
@@ -26,7 +27,8 @@ if __name__ == "__main__":
         readCSV = csv.reader(csvfile, delimiter=',')
         f = open(OUT_CSV_PATH + csv_name, "w")
         f.write("ID_GAME;GAME;ID_PLATFORM;YEAR_RELEASE;GENRE;ID_PUBLISHER;PUBLISHER;NA_SALES;EU_SALES;JP_SALES;"
-                "OTHER_SALES;GLOBAL_SALES;CRITIC_SCORE;CRITIC_COUNT;ID_DEVELOPPER;DEVELOPPER;RATING\n")
+                "OTHER_SALES;GLOBAL_SALES;CRITIC_SCORE;CRITIC_COUNT;USER_SCORE;USER_COUNT;"
+                "ID_DEVELOPER;DEVELOPER;RATING\n")
         for row in readCSV:
             for i, cell in enumerate(row):
                 if i == 0:  # ID_GAME ; GAME
@@ -56,7 +58,7 @@ if __name__ == "__main__":
                     except:
                         f.write(EMPTY_CHAR)
                     f.write(";")
-                elif 10 <= i <= 11:  # CRITIC_SCORE ; CRITIC_COUNT
+                elif 10 <= i <= 11:  # CRITIC_SCORE ; CRITIC_COUNT ; USER_SCORE ; USER_COUNT
                     try:
                         count = int(cell)
                         f.write(str(count))
@@ -106,13 +108,13 @@ if __name__ == "__main__":
                 f.write("\n")
             f.close()
 
-            csv_name = 'developper.csv'
+            csv_name = 'developer.csv'
 
             with open(RAW_CSV_PATH + csv_name, errors='ignore') as csvfile:
                 next(csvfile)
                 readCSV = csv.reader(csvfile, delimiter=',')
                 f = open(OUT_CSV_PATH + csv_name, "w")
-                f.write("ID_DEVELOPPER;DEVELOPPER;ACTIVE;HEADQUARTERS_CITY;HEADQUARTERS_COUNTRY;CREATION_DATE;NOTES\n")
+                f.write("ID_DEVELOPPER;DEVELOPER;ACTIVE;HEADQUARTERS_CITY;HEADQUARTERS_COUNTRY;CREATION_DATE;NOTES\n")
                 for row in readCSV:
                     for i, cell in enumerate(row):
                         if i == 0:  # ID_DEVELOPPER; DEVELOPPER
@@ -151,13 +153,12 @@ if __name__ == "__main__":
                 next(csvfile)
                 readCSV = csv.reader(csvfile, delimiter=',')
                 f = open(OUT_CSV_PATH + csv_name, "w")
-                f.write("PLATFORM;DEVELOPPER;MANUFACTURER;GAMES_COUNT;EU_RELEASE;USA_RELEASE;JP_RELEASE;GENERATION\n")
+                f.write("PLATFORM;NAME;MANUFACTURER;GAMES_COUNT;EU_RELEASE;NA_RELEASE;JP_RELEASE;GENERATION\n")
                 for row in readCSV:
                     for i, cell in enumerate(row):
-                        if (i < 7):
-                            f.write(cell + ';')
-                        else:
-                            f.write(cell)
+                        f.write(cell)
+                        if i < len(row)-1 :
+                            f.write(";")
                     f.write("\n")
                 f.close()
 
