@@ -30,3 +30,8 @@ export PGPASSWORD="postgres"
 sh scripts/db-import.sh # Wait until it's done
 ```
 
+### Visualisation
+We use Grafana to build our dashboard
+- [Snapshot](https://snapshot.raintank.io/dashboard/snapshot/nb4wZFJ0yZIjLycNO0uKJl4U5ygWK0pH)
+- Import from ```sql/vgsales-db-1585696436321.json```
+
